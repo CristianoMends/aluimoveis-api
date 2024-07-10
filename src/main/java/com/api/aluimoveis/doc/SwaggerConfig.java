@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import org.springdoc.core.models.GroupedOpenApi;
@@ -15,7 +16,8 @@ import java.util.List;
 
 @Configuration
 @OpenAPIDefinition(
-        security = @SecurityRequirement(name = "bearerAuth")
+        security = @SecurityRequirement(name = "bearerAuth"),
+        servers = { @Server(url= "/", description = "Default Server URL")}
 )
 @SecurityScheme(
         name = "bearerAuth",

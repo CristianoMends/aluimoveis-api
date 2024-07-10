@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: validate
+    flyway:
+      locations: classpath:db/migration
+      baseline-on-migrate: true
+
+springdoc:
+  api-docs:
+    path: /docs
+  swagger-ui:
+    path: /documentation
+
+security:
+  config:
+    key: ${JWT_SECRET}
+    expiration: 3
+
+azure:
+  blob:
+    token: ${AZURE_TOKEN}
+    url:  ${AZURE_URL}
+    container: images
