@@ -26,14 +26,7 @@ public class MessageController {
     private TokenService tokenService;
 
     @GetMapping
-    @Operation(summary = "Lista todas as mensagens", description = "Retorna uma lista de todas as mensagens")
-    public ResponseEntity<List<Message>> getAllMessages() {
-        List<Message> messages = messageService.getAllMessages();
-        return ResponseEntity.status(HttpStatus.OK).body(messages);
-    }
-
-    @GetMapping("/sender")
-    @Operation(summary = "Obtém uma mensagem por ID", description = "Retorna uma mensagem específica pelo seu ID")
+    @Operation(summary = "Obtém uma mensagem por ID dos usuários", description = "Retorna uma mensagem específica pelo ID do usuário que enviou e do que recebeu")
     public ResponseEntity<List<MessageViewDto>> getMessageBetweenUsers(
             @RequestParam Long user1,
             @RequestParam Long user2
@@ -53,20 +46,6 @@ public class MessageController {
     public ResponseEntity<Object> createMessage(@RequestBody MessageDto message) {
         var createdMessage = messageService.createMessage(message);
         return ResponseEntity.status(HttpStatus.CREATED).body("Message sent");
-    }
-
-    @PutMapping("/{id}")
-    @Operation(summary = "Atualiza uma mensagem", description = "Atualiza uma mensagem existente")
-    public ResponseEntity<Message> updateMessage(@PathVariable Long id, @RequestBody Message message) {
-        Message updatedMessage = messageService.updateMessage(id, message);
-        return ResponseEntity.status(HttpStatus.OK).body(updatedMessage);
-    }
-
-    @DeleteMapping("/{id}")
-    @Operation(summary = "Deleta uma mensagem", description = "Deleta uma mensagem pelo seu ID")
-    public ResponseEntity<Void> deleteMessage(@PathVariable Long id) {
-        messageService.deleteMessage(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     private MessageViewDto toMessageView(Message m) {
