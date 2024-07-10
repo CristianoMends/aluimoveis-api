@@ -117,4 +117,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull re
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo  [LICENSE](licence) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo  [LICENSE](LICENSE) para mais detalhes.
