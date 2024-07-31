@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.UUID;
 
 @Component()
 public class Util {
@@ -35,6 +36,9 @@ public class Util {
         try {
 
             String blobName = file.getOriginalFilename();
+            blobName = generateUniqueBlobName(blobName);
+
+
 
             if (token != null && url != null && container != null) {
                 BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
@@ -84,5 +88,16 @@ public class Util {
             success = blobClient.deleteIfExists();
         }
         return success;
+    }
+
+    public static String generateUniqueBlobName(String originalFilename) {
+        if (originalFilename == null) {return null;}
+        String uniqueID = UUID.randomUUID().toString();
+        String extension = "";
+        int lastDotIndex = originalFilename.lastIndexOf(".");
+        if (lastDotIndex > 0) {
+            extension = originalFilename.substring(lastDotIndex);
+        }
+        return uniqueID + extension;
     }
 }
