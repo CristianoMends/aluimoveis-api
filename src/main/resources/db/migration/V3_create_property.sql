@@ -6,6 +6,7 @@ CREATE TABLE property (
    price FLOAT NOT NULL,
    available BOOLEAN NOT NULL,
    images TEXT[],
+   creation_date TIMESTAMP WITHOUT TIME ZONE,
    owner_id BIGINT,
    CONSTRAINT pk_property PRIMARY KEY (property_id)
 );

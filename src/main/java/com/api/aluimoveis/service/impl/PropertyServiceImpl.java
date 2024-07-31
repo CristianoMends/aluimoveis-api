@@ -3,10 +3,9 @@ package com.api.aluimoveis.service.impl;
 import com.api.aluimoveis.dto.PropertyDto;
 import com.api.aluimoveis.dto.PropertySearchDto;
 import com.api.aluimoveis.dto.PropertyUpdateDto;
-import com.api.aluimoveis.dto.UserDto;
 import com.api.aluimoveis.entity.Property;
 import com.api.aluimoveis.entity.User;
-import com.api.aluimoveis.handler.BusinessException;
+import com.api.aluimoveis.exception.BusinessException;
 import com.api.aluimoveis.repository.PropertyRepository;
 import com.api.aluimoveis.service.PropertyService;
 import com.api.aluimoveis.service.UserService;
@@ -20,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -62,7 +62,9 @@ public class PropertyServiceImpl implements PropertyService {
             }
         }
 
-        return propertyRepository.save(property.toEntity(images, owner.get()));
+        Property propertySaved = property.toEntity(images, owner.get());
+        propertySaved.setCreationDate(LocalDateTime.now());
+        return propertyRepository.save(propertySaved);
     }
 
     public Property updateProperty(Long id, PropertyUpdateDto propertyDto) {

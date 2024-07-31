@@ -1,4 +1,4 @@
-package com.api.aluimoveis.handler;
+package com.api.aluimoveis.exception;
 
 import jakarta.annotation.Resource;
 import org.springframework.cglib.proxy.UndeclaredThrowableException;
