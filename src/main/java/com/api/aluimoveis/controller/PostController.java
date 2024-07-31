@@ -46,7 +46,8 @@ public class PostController {
                 p.getPrice(),
                 p.isAvailable(),
                 p.getImages(),
-                p.getOwner().getId()
+                p.getOwner().getId(),
+                p.getCreationDate()
         );
     }
 

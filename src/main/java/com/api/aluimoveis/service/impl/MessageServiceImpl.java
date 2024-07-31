@@ -2,7 +2,7 @@ package com.api.aluimoveis.service.impl;
 
 import com.api.aluimoveis.dto.MessageDto;
 import com.api.aluimoveis.entity.Message;
-import com.api.aluimoveis.handler.BusinessException;
+import com.api.aluimoveis.exception.BusinessException;
 import com.api.aluimoveis.repository.MessageRepository;
 import com.api.aluimoveis.service.MessageService;
 import com.api.aluimoveis.service.PropertyService;

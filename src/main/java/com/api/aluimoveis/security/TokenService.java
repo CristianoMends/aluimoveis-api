@@ -1,7 +1,7 @@
 package com.api.aluimoveis.security;
 
 import com.api.aluimoveis.entity.User;
-import com.api.aluimoveis.handler.BusinessException;
+import com.api.aluimoveis.exception.BusinessException;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

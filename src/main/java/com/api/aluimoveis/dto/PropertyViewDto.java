@@ -2,6 +2,7 @@ package com.api.aluimoveis.dto;
 
 import com.api.aluimoveis.entity.User;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class PropertyViewDto {
@@ -12,6 +13,8 @@ public class PropertyViewDto {
     private Float price;
     private boolean available;
     private List<String> images;
+
+    private LocalDateTime creationDate;
     private Long ownerId;
 
     public Long getId() {
@@ -70,6 +73,13 @@ public class PropertyViewDto {
         this.images = images;
     }
 
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
+    }
 
     public Long getOwnerId() {
         return ownerId;
@@ -79,13 +89,14 @@ public class PropertyViewDto {
         this.ownerId = ownerId;
     }
 
-    public PropertyViewDto(Long id, String title, String description, String address, Float price, boolean available, List<String> images, Long owner) {
+    public PropertyViewDto(Long id, String title, String description, String address, Float price, boolean available, List<String> images, Long owner, LocalDateTime creationDate) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.address = address;
         this.price = price;
         this.available = available;
+        this.creationDate = creationDate;
         this.images = images;
         this.ownerId = owner;
     }

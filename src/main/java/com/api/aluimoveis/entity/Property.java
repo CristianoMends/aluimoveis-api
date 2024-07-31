@@ -2,6 +2,7 @@ package com.api.aluimoveis.entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
@@ -20,6 +21,7 @@ public class Property {
     private boolean available;
     @Column(name = "images",nullable = true)
     private List<String> images;
+    private LocalDateTime creationDate;
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
@@ -34,6 +36,14 @@ public class Property {
         this.available = available;
         this.images = images;
         this.owner = owner;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
 
     public Long getId() {

@@ -2,7 +2,7 @@ package com.api.aluimoveis.service.impl;
 
 import com.api.aluimoveis.dto.UserDto;
 import com.api.aluimoveis.entity.User;
-import com.api.aluimoveis.handler.BusinessException;
+import com.api.aluimoveis.exception.BusinessException;
 import com.api.aluimoveis.repository.UserRepository;
 import com.api.aluimoveis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

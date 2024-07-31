@@ -1,4 +1,4 @@
-package com.api.aluimoveis.handler;
+package com.api.aluimoveis.exception;
 
 public class BusinessException extends RuntimeException {
     public BusinessException(String message) {

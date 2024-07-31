@@ -1,4 +1,4 @@
-package com.api.aluimoveis.handler;
+package com.api.aluimoveis.exception;
 
 import java.util.Date;
 
