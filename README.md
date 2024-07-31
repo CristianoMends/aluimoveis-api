@@ -77,7 +77,7 @@ Pré-requisitos
 ### Clonar o Repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/aluimoveis-api.git
+git clone https://github.com/CristianoMends/aluimoveis-api.git
 cd aluimoveis-api
 ```
 ### Configurar variaveis de ambiente:
@@ -112,7 +112,8 @@ Endpoints Principais
 - `/properties` - Endpoints para gerenciamento de imóveis.
 - `/messages` - Endpoints para envio e recebimento de mensagens.
 - `/post` - Endpoint para obter as publicações de imoveis
-- `Contribuição`
+
+## Contribuição
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
 
 ## Licença
