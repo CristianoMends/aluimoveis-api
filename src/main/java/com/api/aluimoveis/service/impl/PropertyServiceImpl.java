@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -63,7 +65,11 @@ public class PropertyServiceImpl implements PropertyService {
         }
 
         Property propertySaved = property.toEntity(images, owner.get());
-        propertySaved.setCreationDate(LocalDateTime.now());
+
+        ZoneId saoPauloZone = ZoneId.of("America/Sao_Paulo");
+        ZonedDateTime saoPauloDateTime = ZonedDateTime.now(saoPauloZone);
+        LocalDateTime localDateTime = saoPauloDateTime.toLocalDateTime();
+        propertySaved.setCreationDate(localDateTime);
         return propertyRepository.save(propertySaved);
     }
 
